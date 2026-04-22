@@ -1,5 +1,3 @@
-// src/components/hero-carousel.tsx
-
 "use client";
 import * as React from "react";
 import Image from "next/image";
@@ -30,22 +28,19 @@ export function HeroCarousel() {
         <CarouselContent className="-ml-4">
           {BANNERS.map((banner, index) => (
             <CarouselItem key={banner.id} className="pl-4 md:basis-1/2 lg:basis-[60%]">
-              {/* ПОЛНОСТЬЮ ИСПРАВЛЕННЫЙ БЛОК ОБЕРТКИ */}
-              {/* Убрана фиксированная высота. Контейнер теперь гибкий. */}
               <div className="relative aspect-[16/9] md:aspect-[21/9] w-full rounded-[40px] overflow-hidden transition-all duration-300 bg-transparent">
                 <Image
                   src={banner.src}
                   alt={banner.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 60vw"
-                  className="object-cover" // ВЕРНУЛИ cover, чтобы картинка заполнила всё
-                  priority={index === 0} // Оптимизация для первого слайда
+                  className="object-cover"
+                  priority={index === 0}
                 />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Стилизуем кнопки навигации (необязательно, но улучшает UX) */}
         <CarouselPrevious className="hidden md:flex left-8 bg-white/60 hover:bg-white text-black border-none h-12 w-12 rounded-full" />
         <CarouselNext className="hidden md:flex right-8 bg-white/60 hover:bg-white text-black border-none h-12 w-12 rounded-full" />
       </Carousel>

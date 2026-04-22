@@ -1,4 +1,4 @@
-"use client"; // Добавь, если используешь интерактив, но для ссылок не обязательно
+"use client";
 
 import {
   Pagination,
@@ -20,7 +20,7 @@ export function CatalogPagination({ currentPage, totalPages }: { currentPage: nu
         pages.push("...");
       }
     }
-    return Array.from(new Set(pages)); // Убираем дубликаты точек
+    return Array.from(new Set(pages));
   };
 
   return (

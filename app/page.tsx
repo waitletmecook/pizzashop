@@ -1,9 +1,9 @@
-// src/app/page.tsx
 import { getProducts } from "@/lib/api";
 import { ProductCard } from "@/components/product-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { CategoryBar } from "@/components/category-bar";
+import { PromotionsSection } from "@/components/promotions-section"; // Импортируем новый блок
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const params = await searchParams;
@@ -12,13 +12,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
 
   return (
     <div className="bg-[#F9F9F9] min-h-screen">
-      {/* 1. Карусель баннеров */}
       <HeroCarousel />
-
-      {/* 2. Быстрые категории */}
       <CategoryBar />
-
-      {/* 3. Основной каталог */}
       <main className="container mx-auto px-4 py-10">
         <h1 className="text-4xl font-bold mb-10 text-[#191919]">Пицца</h1>
         
@@ -29,6 +24,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         </div>
 
         <CatalogPagination currentPage={currentPage} totalPages={totalPages} />
+        <PromotionsSection />
       </main>
     </div>
   );

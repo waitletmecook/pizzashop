@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-// 1. Импортируем Montserrat вместо Geist
 import { Montserrat } from "next/font/google"; 
 import "./globals.css";
 import { Header } from "@/components/header";
 
-// 2. Настраиваем шрифт
 const montserrat = Montserrat({
-  subsets: ["latin", "cyrillic"], // Обязательно добавляем кириллицу
-  weight: ["400", "500", "700", "900"], // Выбираем нужные веса (обычный, средний, жирный, черный)
-  variable: "--font-montserrat", // CSS переменная
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "700", "900"], 
+  variable: "--font-montserrat", 
 });
 
 export const metadata: Metadata = {
@@ -23,7 +21,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={montserrat.variable}>
-      {/* 3. Применяем шрифт к body */}
       <body className={`${montserrat.className} min-h-full flex flex-col bg-[#F9F9F9]`}>
         <Header />
         <main className="flex-grow">
